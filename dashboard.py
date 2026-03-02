@@ -4,8 +4,12 @@ from coinbase.wallet.client import Client
 
 # Securely pull your keys from Streamlit's "Secrets" vault
 try:
-    API_KEY = st.secrets["API_KEY"]
-    API_SECRET = st.secrets["API_SECRET"]
+    API_KEY = st.secrets["organizations/ea284d7f-29d3-4638-958b-030999052d43"]
+    API_SECRET = st.secrets["-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIGc81JYjAADqDCp/3dTWNNHfdkSBfkpLipgxhuisKNugoAoGCCqGSM49
+AwEHoUQDQgAEbW+98iXAuznmTRmrSiL3+S5v8zS2SYgnU5hO3b2uWK1tq+0RgGDx
++i/Kh213k5TepJ3bDkALClHfoy6sEKNPnw==
+-----END EC PRIVATE KEY-----"]
     client = Client(API_KEY, API_SECRET)
 except Exception:
     st.error("Missing Credentials! Go to Settings > Secrets and add API_KEY and API_SECRET.")
