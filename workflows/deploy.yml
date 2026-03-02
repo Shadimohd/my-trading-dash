@@ -1,9 +1,8 @@
 name: Update Dashboard
 on:
+  workflow_dispatch: # Allows the "Run workflow" button
   schedule:
-    - cron: '*/5 * * * *' # This is the magic "Every 5 Minutes" code
-  push:
-    branches: [ main ]
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
