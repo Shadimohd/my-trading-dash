@@ -1,7 +1,7 @@
 name: Update Dashboard
 on:
   schedule:
-    - cron: '0 * * * *' # Runs every hour
+    - cron: '*/5 * * * *' # This is the magic "Every 5 Minutes" code
   push:
     branches: [ main ]
 
@@ -14,7 +14,12 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+      - name: Install Dependencies
+        run: pip install coinbase-python
       - name: Run Bake Script
+        env:
+          CB_API_KEY: ${{ secrets.API_KEY }}
+          CB_API_SECRET: ${{ secrets.API_SECRET }}
         run: python update_dash.py
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
