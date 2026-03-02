@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
-import os
-from coinbase.rest import RESTClient
-from datetime import datetime
+from coinbase.wallet.client import Client # Updated for the new library
 
 # --- CONFIG & API SETUP ---
 # Your verified organizations ID and EC Private Key
